@@ -1,0 +1,27 @@
+name: flutter_random
+description: statistics, geometry
+homepage: https://pythonnotjava.github.io
+repository: 
+documentation: 
+issue_tracker: 
+
+version: 0.0.1
+
+environment:
+  sdk: ">=3.0.0 < 4.0.0"
+
+dependencies:
+  
+topics:
+  - random
+  - linalg
+  - math
+  - simulation
+
+platforms:
+  windows:
+  android:
+  linux:
+  ios:
+  macos:
+  web:

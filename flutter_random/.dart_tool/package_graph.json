@@ -1,0 +1,14 @@
+{
+  "roots": [
+    "flutter_random"
+  ],
+  "packages": [
+    {
+      "name": "flutter_random",
+      "version": "0.0.1",
+      "dependencies": [],
+      "devDependencies": []
+    }
+  ],
+  "configVersion": 1
+}
