@@ -44,7 +44,7 @@ class Unifrom extends ContinuousDistribution {
   }
 
   @override
-  double rvs() {
+  double rng() {
     return lb + _random.nextDouble() * gap;
   }
 

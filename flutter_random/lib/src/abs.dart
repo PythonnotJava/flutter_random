@@ -5,7 +5,7 @@ part of 'core.dart';
 /// The default value is null, indicating that the seed changes over time.
 /// # zh
 /// - 在不传入Random类的情况下，生成线程安全的私有Random类并传入全局种子控制，默认是null值，表示种子随时间变化
-int? _changeableSeed = null;
+int? _changeableSeed;
 
 /// # en
 /// | Concept | Full Name                        | Discrete (e.g., Dice) | Continuous (e.g., Normal) | Description                                            |
@@ -31,7 +31,7 @@ abstract interface class StatsDistribution {
 
   double cdf(num x);
   num ppf(double p);
-  num rvs();
+  num rng();
 }
 
 mixin ErrorFunction on StatsDistribution {
@@ -47,6 +47,32 @@ mixin ErrorFunction on StatsDistribution {
             - 0.284496736 * t * t
             + 1.421413741 * t * t * t
             - 1.453152027 * math.pow(t, 4) + 1.061405429 * math.pow(t, 5));
+  }
+
+  /// # en
+  /// By: https://wikimedia.org/api/rest_v1/media/math/render/svg/f35ab4db6e3d906cb76de918bad2cf0ab9ea1c85
+  /// # zh
+  /// 来源：https://wikimedia.org/api/rest_v1/media/math/render/svg/f35ab4db6e3d906cb76de918bad2cf0ab9ea1c85
+  double erfInv(double z) {
+    if (z <= -1 || z >= 1) {
+      throw ArgumentError("Input value must be in the open interval (-1, 1).");
+    }
+    final double sqrtPiOver2 = math.sqrt(math.pi) / 2;
+    final coeffs = <double>[
+      1,
+      0.261799388,
+      0.143931731,
+      0.0976636195,
+      0.073299079,
+      0.058372501,
+    ];
+    double sum = 0;
+    for (int k = 0; k < coeffs.length; k++) {
+      int exponent = 2 * k + 1;
+      sum += coeffs[k] * math.pow(z, exponent);
+    }
+
+    return sqrtPiOver2 * sum;
   }
 }
 

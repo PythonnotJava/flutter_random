@@ -6,7 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/flutter_random/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/flutter_random/build" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="DataSci" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />
   </component>
